@@ -17,8 +17,24 @@ trait GeneralTrait{
             'status'=>'Error',
             'message' => $message,
             'data' => null
-        ]);
+        ],$code);
     }
+
+    protected function success($data,$answers, $message = null, $code = 200)
+    {
+        return response()->json([
+
+            'message' => $message,
+              'الاسئلة'=>[[
+        'السؤال' => $data['body'],
+        // 'الخيارات' => [ $answers['الخيارات']
+
+        // ]
+                                    ]]
+        ], $code);
+    }
+
+
 
 
 }

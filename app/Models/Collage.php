@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Cycle;
+use App\Models\Material;
 class Collage extends Model
 {
     use HasFactory;
@@ -22,4 +23,10 @@ class Collage extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+
+    public function cycles(){
+        return $this->hasManyThrough(Cycle::class, Material::class);
+    }
+
 }

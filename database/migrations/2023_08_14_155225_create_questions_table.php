@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->uuid();
             $table->string('body');
-            $table->decimal('score', 5, 2);
-            $table->morphs('questionable');
+            $table->float('degree');
+            $table->boolean('is-cycle');
+            $table->string('year')->nullable();
+            $table->foreignId('material_id')->constrained();
+            $table->boolean('is-master');
             $table->timestamps();
         });
     }

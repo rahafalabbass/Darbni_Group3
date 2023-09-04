@@ -9,8 +9,10 @@ class Complaint extends Model
 {
     use HasFactory;
 
-    protected $filable = [
+    protected $fillable = [
         'body',
+        'user_id',
+        'uuid'
     ];
 
     public function user(){
