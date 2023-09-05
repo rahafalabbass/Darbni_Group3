@@ -46,5 +46,6 @@ Route::group([
  Route::get('/bank-questions',[QuestionController::class,'bank_questions']);
  Route::post('/question-corrector',[QuestionController::class,'Question_corrector']);
  Route::post('favourite/',[FavouriteController::class,'add_question']);
+ Route::get('show-favourite/',[FavouriteController::class,'show_fav']);
 
   });
