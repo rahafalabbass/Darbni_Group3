@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-           $table->uuid('user_id');
             $table->string('name')->unique();
-            $table->string('number');
-             $table->string('code')->default(null);
+            $table->string('number')->unique();
             $table->foreignId('collage_id')->constrained();
+            $table->string('code');
+            $table->string('url')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

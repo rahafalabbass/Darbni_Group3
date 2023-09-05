@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
+            $table->uuid()->unique();
             $table->string('name');
             $table->foreignId('collage_id')->constrained();
             $table->timestamps();

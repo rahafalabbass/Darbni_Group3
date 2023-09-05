@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\users;
+use App\Models\User;
+use App\Models\Image;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
-    
+
     public function showProfile(){
         $user = Auth::user();
         return response()->json($user);
@@ -17,7 +20,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $user->name = $request->input('name');
-        
+
         if ($request->hasFile('profile_picture')){
 
             $validator = Validator::make($request->all(), [
@@ -28,7 +31,7 @@ class UserController extends Controller
             }
         }
 
-        
+
 
         $user = User::findOrFail(Auth::id());
 

@@ -16,4 +16,8 @@ class Material extends Model
     public function cycles(){
         return $this->hasMany(Cycle::class);
     }
+
+    public function questions(){
+        return $this->hasMany(Question::class);
+    }
 }

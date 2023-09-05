@@ -21,7 +21,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'number',
+        'collage_id',
         'code',
+        'url'
     ];
 
     /**
@@ -61,7 +63,7 @@ class User extends Authenticatable
         return $this->hasOne(Favorite::class);
     }
 
-    public function codes(){
-        return $this->hasMany(Code::class);
+    public function code(){
+        return $this->hasOne(Code::class);
     }
 }

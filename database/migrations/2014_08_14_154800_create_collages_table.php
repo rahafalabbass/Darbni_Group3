@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('collages', function (Blueprint $table) {
             $table->id();
+            $table->uuid()->unique();
             $table->string('name');
             $table->string('type');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }
