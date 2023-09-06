@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Http\Controllers\favourite;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\favouriteResource;
 use App\Http\Traits\GeneralTrait;
 use App\Models\Favorite;
 use App\Models\Question;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -31,4 +32,13 @@ class FavouriteController extends Controller
         ]);
         return $this->successResponse([], 'the question has added successfully.');
     }
+
+
+    public function show_fav(Request $request){
+      $fav=Auth::user()->favorite;
+
+     return  favouriteResource::Collection($fav);
+
+    }
 }
+?>
